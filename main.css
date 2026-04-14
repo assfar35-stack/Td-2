@@ -60,5 +60,8 @@ h1 {
 }
 
 
- .dark { background: #111; color: #fff; }
+.dark-mode {
+  background-color: black;
+  color: white;
+}
 
