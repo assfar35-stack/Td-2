@@ -12,11 +12,16 @@
 
     <div class="exercise-container">
       <h2>Exercice 1 : Changement de thème (Dark / Light Mode)</h2>
-      <button onclick="Mode()" id="btn">Toggle dark mode</button>
+      <button onclick="Mode()" id="btn">Make it dark</button>
     </div>
 
     <div class="exercise-container">
       <h2>Exercice 2 : Barre de progression</h2>
+      <div id="bar-container">
+        <div id="bar">0%</div>
+      </div>
+      <button onclick="increment()" id="btn-plus">+10%</button>
+      <button onclick="reset()" id="btn-reset">Réinitialiser</button>
     </div>
 
     <div class="exercise-container">
@@ -29,23 +34,40 @@
 
     <script>
       /* exercise 1 */
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark') {
-        document.body.classList.add('dark-mode');
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
       }
 
       function Mode() {
         const element = document.body;
-        element.classList.toggle('dark-mode');
-        
-        if (element.classList.contains('dark-mode')) {
-          localStorage.setItem('theme', 'dark');
+        element.classList.toggle("dark-mode");
+
+        if (element.classList.contains("dark-mode")) {
+          localStorage.setItem("theme", "dark");
         } else {
-          localStorage.setItem('theme', 'light');
+          localStorage.setItem("theme", "light");
         }
       }
 
-      
+      /* exercise 2 */
+      let progress = 0;
+
+        function increment() {
+            if (progress < 100) {
+            progress += 10;
+            document.getElementById("bar").style.width = progress + "%";
+            document.getElementById("bar").textContent = progress + "%";
+            }
+        }
+
+        function reset() {
+            progress = 0;
+            document.getElementById("bar").style.width = "0%";
+            document.getElementById("bar").textContent = "0%";
+        }
+
+        
     </script>
   </body>
 </html>
