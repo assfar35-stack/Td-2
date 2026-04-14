@@ -26,6 +26,24 @@
 
     <div class="exercise-container">
       <h2>Exercice 3 : Filtrage de liste en temps réel</h2>
+      <ul id="list">
+        <li>Maroc</li>
+        <li>France</li>
+        <li>Espagne</li>
+        <li>Allemagne</li>
+        <li>Italie</li>
+        <li>Portugal</li>
+        <li>Algérie</li>
+        <li>Tunisie</li>
+        <li>Sénégal</li>
+        <li>Égypte</li>
+      </ul>
+      <input
+        type="text"
+        id="search"
+        placeholder="Rechercher un pays..."
+        oninput="filterList()"
+      />
     </div>
 
     <div class="exercise-container">
@@ -53,21 +71,32 @@
       /* exercise 2 */
       let progress = 0;
 
-        function increment() {
-            if (progress < 100) {
-            progress += 10;
-            document.getElementById("bar").style.width = progress + "%";
-            document.getElementById("bar").textContent = progress + "%";
-            }
+      function increment() {
+        if (progress < 100) {
+          progress += 10;
+          document.getElementById("bar").style.width = progress + "%";
+          document.getElementById("bar").textContent = progress + "%";
         }
+      }
 
-        function reset() {
-            progress = 0;
-            document.getElementById("bar").style.width = "0%";
-            document.getElementById("bar").textContent = "0%";
-        }
+      function reset() {
+        progress = 0;
+        document.getElementById("bar").style.width = "0%";
+        document.getElementById("bar").textContent = "0%";
+      }
 
-        
+      /* exercise 3 */
+
+      function filterList() {
+        const query = document.getElementById("search").value.toLowerCase();
+        const items = document.querySelectorAll("#list li");
+
+        items.forEach((item) => {
+          item.style.display = item.textContent.toLowerCase().includes(query)
+            ? ""
+            : "none";
+        });
+      }
     </script>
   </body>
 </html>

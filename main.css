@@ -77,9 +77,9 @@ h1 {
 #bar {
   width: 0%;
   background: #007bff;
-  color: white;
+  color: black;
   text-align: center;
-  font-size: 13px;
+  font-size: 16px;
   line-height: 28px;
   height: 28px;
   border-radius: 8px;
@@ -97,3 +97,27 @@ h1 {
   cursor: pointer;
 }
 
+
+#search {
+  width: 300px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-top: 12px;
+  display: block;
+}
+
+#list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#list li {
+  padding: 8px 12px;
+  border-bottom: 2px solid #eee;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
